@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background: #3498db;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+.roulette-container {
+    position: relative;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wheel-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+#wheelCanvas {
+    width: 100%;
+    height: 100%;
+}
+
+.wheel-pointer {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 30px solid #e74c3c;
+    z-index: 2;
+}
+
+.spin-button {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    padding: 15px 40px;
+    background: #e74c3c;
+}
+
+.spin-button:hover {
+    background: #c0392b;
+}
+
+.options-list {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #eee;
+}
+
+.options-list h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+#optionsList {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+#optionsList li {
+    padding: 10px;
+    background: #f8f9fa;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#optionsList li button {
+    padding: 5px 10px;
+    background: #e74c3c;
+    font-size: 0.8rem;
+}
+
+.clear-button {
+    background: #95a5a6;
+    width: 100%;
+}
+
+.clear-button:hover {
+    background: #7f8c8d;
+}
+
+.history-list {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #eee;
+}
+
+.history-list h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+#historyList {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+#historyList li {
+    padding: 10px;
+    background: #f8f9fa;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid #3498db;
+}
+
+#historyList li .timestamp {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+@media (max-width: 900px) {
+    .container {
+        max-width: 98vw;
+        padding: 1rem;
+    }
+    .wheel-container {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+        min-height: 100vh;
+    }
+    .container {
+        padding: 0.5rem;
+        border-radius: 0;
+        box-shadow: none;
+        max-width: 100vw;
+        min-height: 100vh;
+    }
+    .input-section {
+        flex-direction: column;
+        gap: 8px;
+    }
+    input[type="text"] {
+        font-size: 1rem;
+        padding: 10px;
+    }
+    button, .spin-button, .clear-button {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px 0;
+    }
+    .roulette-container {
+        margin: 1rem 0;
+    }
+    .wheel-container {
+        width: 150px;
+        height: 150px;
+    }
+    h1 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    .options-list h2,
+    .history-list h2 {
+        font-size: 1.1rem;
+    }
+    #optionsList li,
+    #historyList li {
+        font-size: 0.95rem;
+        padding: 8px;
+    }
+    .options-list,
+    .history-list {
+        margin-top: 1rem;
+        padding-top: 1rem;
+    }
+} 

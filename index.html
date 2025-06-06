@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruleta Aleatoria</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Ruleta Aleatoria</h1>
+        
+        <div class="input-section">
+            <input type="text" id="optionInput" placeholder="Agregar nueva opción">
+            <button id="addOption">Agregar</button>
+        </div>
+
+        <div class="roulette-container">
+            <div class="wheel-container">
+                <canvas id="wheelCanvas"></canvas>
+                <div class="wheel-pointer"></div>
+            </div>
+            <button id="spinButton" class="spin-button">¡Girar!</button>
+        </div>
+
+        <div class="options-list">
+            <h2>Opciones Agregadas</h2>
+            <ul id="optionsList"></ul>
+            <button id="clearOptions" class="clear-button">Limpiar Todo</button>
+        </div>
+
+        <div class="history-list">
+            <h2>Resultados Anteriores</h2>
+            <ul id="historyList"></ul>
+            <button id="clearHistory" class="clear-button">Limpiar Historial</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
