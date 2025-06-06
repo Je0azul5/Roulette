@@ -3,6 +3,7 @@ class Roulette {
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
         this.options = [];
+        this.optionColors = [];
         this.history = [];
         this.rotation = 0;
         this.isSpinning = false;
@@ -10,10 +11,14 @@ class Roulette {
         this.spinStartTime = 0;
         this.currentRotation = 0;
         this.targetRotation = 0;
-        this.colors = [
-            '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', 
-            '#FFEEAD', '#D4A5A5', '#9B59B6', '#3498DB'
+        this.baseColors = [
+            '#0074D9', '#1E90FF', '#00BFFF', '#0057D9',
+            '#2ECC40', '#28B463', '#27AE60', '#1ABC9C',
+            '#16A085', '#00CEC9', '#34ACE0', '#0984E3',
+            '#8E44AD', '#9B59B6', '#6C5CE7', '#00B894',
+            '#FFD700', '#FFDC00', '#FFEA00', '#F1C40F'
         ];
+        this.availableColors = [...this.baseColors];
 
         // Set canvas size
         this.resizeCanvas();
@@ -57,10 +62,21 @@ class Roulette {
         animate();
     }
 
+    getRandomColor() {
+        if (this.availableColors.length === 0) {
+            this.availableColors = [...this.baseColors];
+        }
+        const idx = Math.floor(Math.random() * this.availableColors.length);
+        const color = this.availableColors[idx];
+        this.availableColors.splice(idx, 1);
+        return color;
+    }
+
     addOption(input) {
         const option = input.value.trim();
         if (option && !this.options.includes(option)) {
             this.options.push(option);
+            this.optionColors.push(this.getRandomColor());
             this.updateOptionsList();
             this.draw();
             input.value = '';
@@ -68,7 +84,11 @@ class Roulette {
     }
 
     removeOption(option) {
-        this.options = this.options.filter(opt => opt !== option);
+        const idx = this.options.indexOf(option);
+        if (idx !== -1) {
+            this.options.splice(idx, 1);
+            this.optionColors.splice(idx, 1);
+        }
         this.updateOptionsList();
         this.draw();
     }
@@ -89,6 +109,7 @@ class Roulette {
 
     clearOptions() {
         this.options = [];
+        this.optionColors = [];
         this.updateOptionsList();
         this.draw();
     }
@@ -133,7 +154,7 @@ class Roulette {
             ctx.arc(centerX, centerY, radius, startAngle, endAngle);
             ctx.closePath();
 
-            ctx.fillStyle = this.colors[index % this.colors.length];
+            ctx.fillStyle = this.optionColors[index] || '#ccc';
             ctx.fill();
             ctx.strokeStyle = '#fff';
             ctx.lineWidth = 2;
@@ -206,10 +227,6 @@ class Roulette {
             this.isSpinning = false;
             this.rotation = this.targetRotation;
             this.draw();
-    
-            // ----------------------------------------------------------------
-            // == Aquí reemplazamos el "desfase" anterior por el cálculo con arrowAngle==
-            // ----------------------------------------------------------------
     
             // 1. Normalizamos la rotación a [0, 2π)
             const normalizedRotation = (this.rotation % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);

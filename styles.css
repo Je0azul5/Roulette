@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: linear-gradient(135deg, #dbeafe 0%, #a5b4fc 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -18,14 +18,14 @@ body {
     background: white;
     padding: 2rem;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(76, 97, 242, 0.08);
     max-width: 800px;
     width: 100%;
 }
 
 h1 {
     text-align: center;
-    color: #2c3e50;
+    color: #4834D4;
     margin-bottom: 2rem;
     font-size: 2.5rem;
 }
@@ -39,7 +39,7 @@ h1 {
 input[type="text"] {
     flex: 1;
     padding: 12px;
-    border: 2px solid #e0e0e0;
+    border: 2px solid #a5b4fc;
     border-radius: 8px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
@@ -47,14 +47,14 @@ input[type="text"] {
 
 input[type="text"]:focus {
     outline: none;
-    border-color: #3498db;
+    border-color: #6C63FF;
 }
 
 button {
     padding: 12px 24px;
     border: none;
     border-radius: 8px;
-    background: #3498db;
+    background: #6C63FF;
     color: white;
     font-weight: 500;
     cursor: pointer;
@@ -62,7 +62,7 @@ button {
 }
 
 button:hover {
-    background: #2980b9;
+    background: #4834D4;
 }
 
 .roulette-container {
@@ -94,7 +94,7 @@ button:hover {
     height: 0;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-top: 30px solid #e74c3c;
+    border-top: 30px solid #6C63FF;
     z-index: 2;
 }
 
@@ -102,11 +102,11 @@ button:hover {
     margin-top: 1rem;
     font-size: 1.2rem;
     padding: 15px 40px;
-    background: #e74c3c;
+    background: #4834D4;
 }
 
 .spin-button:hover {
-    background: #c0392b;
+    background: #6C63FF;
 }
 
 .options-list {
@@ -116,7 +116,7 @@ button:hover {
 }
 
 .options-list h2 {
-    color: #2c3e50;
+    color: #4834D4;
     margin-bottom: 1rem;
     font-size: 1.5rem;
 }
@@ -128,7 +128,7 @@ button:hover {
 
 #optionsList li {
     padding: 10px;
-    background: #f8f9fa;
+    background: #f3f0fa;
     margin-bottom: 5px;
     border-radius: 5px;
     display: flex;
@@ -138,17 +138,21 @@ button:hover {
 
 #optionsList li button {
     padding: 5px 10px;
-    background: #e74c3c;
+    background: #8F5AFF;
     font-size: 0.8rem;
 }
 
+#optionsList li button:hover {
+    background: #4834D4;
+}
+
 .clear-button {
-    background: #95a5a6;
+    background: #b2bec3;
     width: 100%;
 }
 
 .clear-button:hover {
-    background: #7f8c8d;
+    background: #636e72;
 }
 
 .history-list {
@@ -158,7 +162,7 @@ button:hover {
 }
 
 .history-list h2 {
-    color: #2c3e50;
+    color: #4834D4;
     margin-bottom: 1rem;
     font-size: 1.5rem;
 }
@@ -170,13 +174,13 @@ button:hover {
 
 #historyList li {
     padding: 10px;
-    background: #f8f9fa;
+    background: #f3f0fa;
     margin-bottom: 5px;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-left: 4px solid #3498db;
+    border-left: 4px solid #6C63FF;
 }
 
 #historyList li .timestamp {
